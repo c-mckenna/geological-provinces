@@ -1,1 +1,31 @@
-<div id="map"></div>
+<div class="container-fluid h-100">
+  <div class="row">
+    <div class="col-sm-12"><h1 class="display-4">Geological Provinces</h1></div>
+  </div>
+  <div class="row h-75">
+    <div class="col-sm-9">
+      <cm-map></cm-map>
+    </div>
+    <div class="col-sm-3">
+      <cm-side-panel></cm-side-panel>
+    </div>
+  </div>
+  <div class="row h-25 col-sm-12">
+    <h5 class="row mt-3 col-sm-12">Export Provinces</h5>
+    <div class="row col-sm-12">
+      <div class="btn-group" role="group">
+        <div class="btn-group" role="group" ngbDropdown>
+          <button id="vectorGroup" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>
+            Vector
+          </button>
+          <div class="dropdown-menu" aria-labelledby="vectorGroup" ngbDropdownMenu>
+            <a class="dropdown-item" (click)="exportVector('GeoJSON')">GeoJSON</a>
+            <a class="dropdown-item" (click)="exportVector('KML')">KML</a>
+            <a class="dropdown-item" (click)="exportVector('WKT')">WKT</a>
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary" (click)="onRaster()">Raster</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div>
+  <ul class="nav nav-tabs mb-2">
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="mode === 'FILTER'" (click)="setMode('FILTER')">Filter</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="mode === 'LIST'" (click)="setMode('LIST')">List</a>
+    </li>
+  </ul>
+  <ng-container *ngIf="mode === 'FILTER'">
+    <h3>Filter Provinces</h3>
+    <cm-search></cm-search>
+  </ng-container>
+  <ng-container *ngIf="mode === 'LIST'">
+    <h3>List Provinces</h3>
+    <cm-list></cm-list>
+  </ng-container>
+  <hr>
+  <p *ngFor="let result of results$ | async">
+    {{ result.NAME }}
+  </p>
+</div>
